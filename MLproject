@@ -7,4 +7,4 @@ entry_points:
     parameters:
       n_neighbors: {type: int, default: 5}
       leaf_size: {type: int, default: 5}
-    command: "python 2churn_mlflow_project.ipynb {n_neighbors} {leaf_size}"
+    command: "python 2churn_mlflow_project.py {n_neighbors} {leaf_size}"

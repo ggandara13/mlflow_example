@@ -1,2 +1,2 @@
-# mlflow_project
-using mlflow project component to run a model 
+# mlflow_example
+using mlflow component to run a model this is typical classification

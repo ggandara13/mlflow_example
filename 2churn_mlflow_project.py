@@ -17,7 +17,7 @@ import io
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix,accuracy_score,classification_report
-from sklearn.metrics import roc_auc_score,roc_curve,scorer
+from sklearn.metrics import roc_auc_score,roc_curve
 from sklearn.metrics import f1_score
 import statsmodels.api as sm
 from sklearn.metrics import precision_score,recall_score
@@ -157,7 +157,7 @@ smote_train_X,smote_test_X,smote_train_Y,smote_test_Y = train_test_split(smote_X
 
 #oversampling minority class using smote
 os = SMOTE(random_state = 0)
-os_smote_X,os_smote_Y = os.fit_sample(smote_train_X,smote_train_Y)
+os_smote_X,os_smote_Y = os.fit_resample(smote_train_X,smote_train_Y)
 os_smote_X = pd.DataFrame(data = os_smote_X,columns=cols)
 os_smote_Y = pd.DataFrame(data = os_smote_Y,columns=target_col)
 
@@ -228,12 +228,8 @@ with mlflow.start_run(run_name='KNN'):
     mlflow.log_metric("F1", model_f1_score)
     
     """ADDITIONAL CODE"""
-    mlflow.sklearn.log_model(knn, "knn_model")
-    mlflow.sklearn.save_model(knn, "knn_s_model")
+    mlflow.sklearn.log_model(knn, "knn_model_B")
+    mlflow.sklearn.save_model(knn, "knn_s_model_B")
 
 
 # In[ ]:
-
-
-
-
